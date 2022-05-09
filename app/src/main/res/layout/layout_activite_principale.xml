@@ -11,9 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="287dp"
         android:onClick="onClickQuitterActivitePrincipale"
         android:text="Quitter"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,9 +23,11 @@
         android:id="@+id/id_bouton_saisir_activite_principale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="189dp"
+        android:layout_marginBottom="117dp"
         android:onClick="onClickSaisirActivitePrincipale"
         android:text="Saisir"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,21 +36,37 @@
         android:id="@+id/id_bouton_enregistrer_activite_principale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="218dp"
-        android:onClick="onClickEnregistrerActivitePrincipale"
-        android:text="Enregistrer"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp"
+        android:onClick="onClickAfficherSelection"
+        android:text="Afficher Selection"
+        app:layout_constraintBottom_toTopOf="@+id/id_bouton_lister_activite_principale"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
 
     <Button
         android:id="@+id/id_bouton_lister_activite_principale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="24dp"
-        android:onClick="onClickListerActivitePrincipale"
-        android:text="Lister"
-        app:layout_constraintEnd_toEndOf="@+id/id_bouton_enregistrer_activite_principale"
+        android:layout_marginStart="21dp"
+        android:layout_marginBottom="140dp"
+        android:onClick="onClickAfficherListe"
+        android:text="Afficher Liste"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/id_bouton_enregistrer_activite_principale"
         app:layout_constraintTop_toBottomOf="@+id/id_bouton_enregistrer_activite_principale" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="380dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="206dp"
+        android:onClick="onClickConnexionBDD"
+        android:text="Connexion à ma BDD"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/id_bouton_enregistrer_activite_principale"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_bouton_saisir_activite_principale" />
 </androidx.constraintlayout.widget.ConstraintLayout>
