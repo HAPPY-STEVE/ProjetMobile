@@ -31,7 +31,7 @@ public class ListeLivre extends AppCompatActivity {
     private TextView leTextView;
     private RecyclerView leRecyclerView;
 
-    private EcouteurARecyclerView monEcouteur;
+    //private EcouteurARecyclerView monEcouteur;
 
     private FirebaseFirestore maBaseFireStore;
 
@@ -52,11 +52,12 @@ public class ListeLivre extends AppCompatActivity {
 
     private void initLesLivres() {
 
-        lesLivres=
+        /*lesLivres=
                 IntStream.range(0, 100)
                         .mapToObj(i->{
+                            Random random = new Random();
                             return new Livre("Nom_"+i,
-                                    new Date(random.nextInt()));})
+                                new Date(random.nextInt()));})
                         .collect(Collectors.toList());
 
 
@@ -76,8 +77,10 @@ public class ListeLivre extends AppCompatActivity {
                                 Log.d("Lee", ""+donneeLue.get(s));
                             }
                         }
+
+
                     }
-                });
+                });*/
 
 
 

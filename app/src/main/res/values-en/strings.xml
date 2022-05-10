@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Android Project</string>
+    <string name="authentification">Log in</string>
+    <string name="Quitter">Quit</string>
+    <string name="Saisir">Register</string>
+    <string name="Titre">Title</string>
+    <string name="Valider">Confirm</string>
+    <string name="Retour">Return</string>
+    <string name="Auteur">Author</string>
+    <string name="AfficherSelection">Show Selection</string>
+    <string name="AfficherListe">Show List</string>
+    <string name="SaisirNouveauLivre">Register a new book</string>
+    <string name="ListeLivres">List of books</string>
+</resources>

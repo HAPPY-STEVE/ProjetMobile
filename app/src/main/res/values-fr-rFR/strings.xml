@@ -1,14 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ProjetMobile</string>
+    <string name="app_name">Projet Android</string>
     <string name="authentification">S\'authentifier</string>
     <string name="Quitter">Quitter</string>
     <string name="Saisir">Saisir</string>
-    <string name="Titre">Titre</string>
-    <string name="Valider">Valider</string>
-    <string name="Retour">Retour</string>
     <string name="Auteur">Auteur</string>
-    <string name="AfficherSelection">AfficherSelection</string>
-    <string name="AfficherListe">AfficherListe</string>
+    <string name="Retour">Retour</string>
+    <string name="Valider">Valider</string>
+    <string name="Titre">Titre</string>
+    <string name="AfficherSelection">Afficher Selection</string>
+    <string name="AfficherListe">Afficher Liste</string>
     <string name="SaisirNouveauLivre">Saisir un nouveau livre</string>
     <string name="ListeLivres">Liste de livres</string>
 </resources>

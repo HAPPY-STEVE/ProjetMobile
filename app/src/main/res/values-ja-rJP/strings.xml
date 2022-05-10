@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProjetMobile</string>
+    <string name="authentification">ﾛｰｷﾞﾝ</string>
+    <string name="Retour">戻る</string>
+    <string name="AfficherSelection">選択を見せる</string>
+    <string name="AfficherListe">組を見せる</string>
+    <string name="ListeLivres">本表</string>
+    <string name="SaisirNouveauLivre">本を入力してください</string>
+    <string name="Auteur">作家</string>
+    <string name="Quitter">出る</string>
+    <string name="Saisir">入力</string>
+    <string name="Titre">名</string>
+    <string name="Valider">確認してください</string>
+</resources>
