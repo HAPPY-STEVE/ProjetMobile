@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetMobile">
         <activity
+            android:name=".AuthentificationEmail"
+            android:exported="false" />
+        <activity
             android:name=".Authentification"
             android:exported="false" />
         <activity

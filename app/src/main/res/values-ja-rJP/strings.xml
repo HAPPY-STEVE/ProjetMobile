@@ -12,4 +12,5 @@
     <string name="Saisir">入力</string>
     <string name="Titre">名</string>
     <string name="Valider">確認してください</string>
+    <string name="ConnexionBDD">Connexion à la BDD</string>
 </resources>

@@ -11,11 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="287dp"
+        android:layout_marginEnd="23dp"
         android:onClick="onClickQuitterActivitePrincipale"
-        android:text="Quitter"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        android:text="@string/Quitter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,50 +21,54 @@
         android:id="@+id/id_bouton_saisir_activite_principale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="189dp"
-        android:layout_marginBottom="117dp"
+        android:layout_marginTop="62dp"
         android:onClick="onClickSaisirActivitePrincipale"
-        android:text="Saisir"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        android:text="@string/Saisir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/id_button_connexionbdd" />
 
     <Button
         android:id="@+id/id_bouton_enregistrer_activite_principale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="217dp"
         android:onClick="onClickAfficherSelection"
-        android:text="Afficher Selection"
-        app:layout_constraintBottom_toTopOf="@+id/id_bouton_lister_activite_principale"
+        android:text="@string/AfficherSelection"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/id_bouton_lister_activite_principale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="21dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginTop="30dp"
         android:onClick="onClickAfficherListe"
-        android:text="Afficher Liste"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/AfficherListe"
         app:layout_constraintStart_toStartOf="@+id/id_bouton_enregistrer_activite_principale"
         app:layout_constraintTop_toBottomOf="@+id/id_bouton_enregistrer_activite_principale" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="380dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="206dp"
-        android:onClick="onClickConnexionBDD"
-        android:text="Connexion à ma BDD"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/id_bouton_enregistrer_activite_principale"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:id="@+id/id_button_authentification_activiteprincipale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="onClickAuthentification"
+        android:text="@string/authentification"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_bouton_saisir_activite_principale" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/id_button_connexionbdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="15dp"
+        android:onClick="onClickConnexionBDD"
+        android:text="@string/ConnexionBDD"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_button_authentification_activiteprincipale" />
 </androidx.constraintlayout.widget.ConstraintLayout>

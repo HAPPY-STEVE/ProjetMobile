@@ -11,4 +11,5 @@
     <string name="AfficherListe">AfficherListe</string>
     <string name="SaisirNouveauLivre">Saisir un nouveau livre</string>
     <string name="ListeLivres">Liste de livres</string>
+    <string name="ConnexionBDD">Connexion à la BDD</string>
 </resources>
