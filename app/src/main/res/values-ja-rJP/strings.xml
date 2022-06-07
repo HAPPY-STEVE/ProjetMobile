@@ -12,5 +12,9 @@
     <string name="Saisir">入力</string>
     <string name="Titre">名</string>
     <string name="Valider">確認してください</string>
-    <string name="ConnexionBDD">Connexion à la BDD</string>
+    <string name="ConnexionBDD">ダタ</string>
+    <string name="Inscription">登録</string>
+    <string name="deconnexion">ログアウト</string>
+    <string name="Email">エメラ</string>
+    <string name="Motdepasse">パスワード</string>
 </resources>

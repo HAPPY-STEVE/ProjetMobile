@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,11 +30,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.annotations.Nullable;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class AuthentificationEmail extends AppCompatActivity {
-    private TextView logView;
-    private TextView mdpView;
+    private EditText logView;
+    private EditText mdpView;
+    public FirebaseFirestore maBaseFireStore;
     private static final String TAG = "EmailPassword";
     // [START declare_auth]
     private FirebaseAuth mAuth;
@@ -42,8 +45,9 @@ public class AuthentificationEmail extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        logView = findViewById(R.id.id_logView);
-        mdpView = findViewById(R.id.id_mdpView);
+        maBaseFireStore = FirebaseFirestore.getInstance();
+        logView = (EditText) findViewById(R.id.id_logView);
+        mdpView = (EditText) findViewById(R.id.id_mdpView);
         // [START initialize_auth]
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -63,34 +67,14 @@ public class AuthentificationEmail extends AppCompatActivity {
     }
     // [END on_start_check_user]
 
-    private void createAccount(String email, String password) {
-        // [START create_user_with_email]
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(AuthentificationEmail.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-                    }
-                });
-        // [END create_user_with_email]
-    }
-
     public void onClickSignIn(View view){
-        String email = (String) logView.getText();
-        String mdp = (String) mdpView.getText();
+        logView = (EditText) findViewById(R.id.id_logView);
+        mdpView = (EditText) findViewById(R.id.id_mdpView);
+        String email = logView.getText().toString();
+        String mdp = mdpView.getText().toString();
         signIn(email, mdp);
     }
+
     private void signIn(String email, String password) {
         // [START sign_in_with_email]
         mAuth.signInWithEmailAndPassword(email, password)
@@ -101,13 +85,12 @@ public class AuthentificationEmail extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+                            reload();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
                             Toast.makeText(AuthentificationEmail.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            updateUI(null);
                         }
                     }
                 });
@@ -135,5 +118,10 @@ public class AuthentificationEmail extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
 
+    }
+
+    public void onClickInscription(View view){
+        Intent activiteInscription = new Intent(this,Inscription.class);
+        startActivity(activiteInscription);
     }
 }

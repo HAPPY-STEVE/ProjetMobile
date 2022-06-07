@@ -10,11 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetMobile">
         <activity
-            android:name=".AuthentificationEmail"
+            android:name=".Inscription"
             android:exported="false" />
         <activity
-            android:name=".Authentification"
-            android:exported="false" />
+            android:name=".AuthentificationEmail"
+            android:exported="true" />
+
         <activity
             android:name=".ListeLivre"
             android:exported="false" />

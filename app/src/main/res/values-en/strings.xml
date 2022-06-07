@@ -13,4 +13,8 @@
     <string name="SaisirNouveauLivre">Register a new book</string>
     <string name="ListeLivres">List of books</string>
     <string name="ConnexionBDD">DB Connection</string>
+    <string name="Inscription">Register</string>
+    <string name="deconnexion">Log out</string>
+    <string name="Email">Email</string>
+    <string name="Motdepasse">Password</string>
 </resources>

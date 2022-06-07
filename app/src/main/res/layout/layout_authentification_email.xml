@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginEnd="33dp"
         android:text="@string/Quitter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +23,7 @@
         android:layout_marginStart="2dp"
         android:layout_marginTop="28dp"
         android:ems="10"
-        android:hint="@string/authentification"
+        android:hint="@string/Motdepasse"
         android:inputType="textPassword"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="@+id/id_logView"
@@ -35,22 +35,33 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="213dp"
         android:ems="10"
+        android:hint="@string/Email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        android:text="@string/authentification"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/id_button_sauthentifier_authentification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="73dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginEnd="27dp"
         android:onClick="onClickSignIn"
         android:text="@string/authentification"
         app:layout_constraintEnd_toEndOf="@+id/id_mdpView"
         app:layout_constraintTop_toBottomOf="@+id/id_mdpView" />
+
+    <Button
+        android:id="@+id/id_button_sincrire_sauthentifier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="66dp"
+        android:onClick="onClickInscription"
+        android:text="@string/Inscription"
+        app:layout_constraintStart_toStartOf="@+id/id_button_sauthentifier_authentification"
+        app:layout_constraintTop_toBottomOf="@+id/id_button_sauthentifier_authentification" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

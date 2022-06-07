@@ -12,4 +12,8 @@
     <string name="SaisirNouveauLivre">Saisir un nouveau livre</string>
     <string name="ListeLivres">Liste de livres</string>
     <string name="ConnexionBDD">Connexion à la BDD</string>
+    <string name="Inscription">S\'inscrire</string>
+    <string name="deconnexion">Deconnexion</string>
+    <string name="Email">Email</string>
+    <string name="Motdepasse">Mot de passe</string>
 </resources>

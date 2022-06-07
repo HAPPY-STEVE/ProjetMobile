@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
         android:layout_marginEnd="151dp"
-        android:text="Liste de livres"
+        android:text="@string/ListeLivres"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
         android:onClick="onClickRetourLister"
-        android:text="Retour"
+        android:text="@string/Retour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/id_recyclerView" />

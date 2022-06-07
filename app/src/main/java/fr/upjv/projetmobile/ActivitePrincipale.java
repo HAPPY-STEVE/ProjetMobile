@@ -14,7 +14,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ActivitePrincipale extends AppCompatActivity {
-    private Button logIn;
+    private Button deconnexionView;
     private FirebaseFirestore maBaseFireStore;
     private FirebaseAuth mAuth;
 
@@ -22,10 +22,11 @@ public class ActivitePrincipale extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        logIn = findViewById(R.id.id_button_authentification_activiteprincipale);
+        mAuth = FirebaseAuth.getInstance();
+        deconnexionView = findViewById(R.id.id_button_deconnexion_activiteprincipale);
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            logIn.setVisibility(View.VISIBLE);
+            deconnexionView.setVisibility(View.VISIBLE);
         }
         setContentView(R.layout.layout_activite_principale);
     }
@@ -48,6 +49,12 @@ public class ActivitePrincipale extends AppCompatActivity {
     public void onClickAfficherSelection(View view) {
     }
 
+
+    public void onClickDeconnexion(View view){
+        FirebaseAuth.getInstance().signOut();
+        Intent authentification = new Intent(this,AuthentificationEmail.class);
+        startActivity(authentification);
+    }
     public void onClickAfficherListe(View view) {
         Intent activiteListe = new Intent(this,ListeLivre.class);
         startActivity(activiteListe);
