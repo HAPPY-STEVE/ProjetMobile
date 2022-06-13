@@ -45,7 +45,6 @@ public class AuthentificationEmail extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        maBaseFireStore = FirebaseFirestore.getInstance();
         logView = (EditText) findViewById(R.id.id_logView);
         mdpView = (EditText) findViewById(R.id.id_mdpView);
         // [START initialize_auth]
@@ -89,8 +88,8 @@ public class AuthentificationEmail extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(AuthentificationEmail.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AuthentificationEmail.this, "Utilisateur introuvable",
+                                    Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -112,6 +111,8 @@ public class AuthentificationEmail extends AppCompatActivity {
     }
 
     private void reload() {
+        Toast.makeText(AuthentificationEmail.this, "Connecté avec succès !",
+                Toast.LENGTH_SHORT).show();
         Intent activitePrincipale = new Intent(this,ActivitePrincipale.class);
         startActivity(activitePrincipale);
     }

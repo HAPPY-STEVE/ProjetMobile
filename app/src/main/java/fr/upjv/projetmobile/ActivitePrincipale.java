@@ -2,8 +2,11 @@ package fr.upjv.projetmobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,12 +26,16 @@ public class ActivitePrincipale extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-        deconnexionView = findViewById(R.id.id_button_deconnexion_activiteprincipale);
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        LayoutInflater inflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.layout_activite_principale, null);
+        deconnexionView = (Button) view.findViewById(R.id.id_button_deconnexion_activiteprincipale);
+
+        setContentView(R.layout.layout_activite_principale);
         if(currentUser != null){
             deconnexionView.setVisibility(View.VISIBLE);
         }
-        setContentView(R.layout.layout_activite_principale);
     }
 
     public void onClickAuthentification(View view){

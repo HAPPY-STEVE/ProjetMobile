@@ -3,6 +3,7 @@ package fr.upjv.projetmobile;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,9 +28,12 @@ public class Inscription extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
+        setContentView(R.layout.layout_inscription);
+
         logViewInscription = findViewById(R.id.id_logView_inscription);
         mdpViewInscription = findViewById(R.id.id_mdpView_inscription);
-        setContentView(R.layout.layout_inscription);
+
     }
 
     private void createAccount(String email, String password) {
@@ -43,13 +47,13 @@ public class Inscription extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(Inscription.this, "Utilisateur crée !",
-                                    Toast.LENGTH_SHORT).show();
+                                    Toast.LENGTH_LONG).show();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(Inscription.this, "Erreur dans l'inscription.",
-                                    Toast.LENGTH_SHORT).show();
+                                    Toast.LENGTH_LONG).show();
                             updateUI(null);
                         }
                     }
@@ -58,6 +62,10 @@ public class Inscription extends AppCompatActivity {
     }
 
     public void onClickInscription(View view){
+        Log.d(TAG, "createUserWithEmail:success");
+
+        Log.d(TAG, logViewInscription.getText().toString());
+
         if(isEmailValid(logViewInscription.getText().toString())){
             createAccount(logViewInscription.getText().toString(), mdpViewInscription.getText().toString());
         }
@@ -71,8 +79,10 @@ public class Inscription extends AppCompatActivity {
         final Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
-    private void updateUI(FirebaseUser user) {
 
+    private void updateUI(FirebaseUser user) {
+        Intent activiteInscription = new Intent(this,AuthentificationEmail.class);
+        startActivity(activiteInscription);
     }
 
     public void onClickQuitter(View view){
