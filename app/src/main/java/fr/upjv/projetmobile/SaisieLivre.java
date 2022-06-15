@@ -1,5 +1,6 @@
 package fr.upjv.projetmobile;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -26,6 +28,8 @@ public class SaisieLivre extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_saisie_livre);
+
+        onClickConnexionBDD();
 
         saisieAuteur = findViewById(R.id.saisieAuteur);
         saisieTitre = findViewById(R.id.saisieTitre);
@@ -50,12 +54,28 @@ public class SaisieLivre extends AppCompatActivity {
 
                             }
                         }
+                )
+                .addOnFailureListener(
+                        new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(SaisieLivre.this,"Echec", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
                 );
+
     }
 
 
 
     public void onClickQuitterSaisie(View view) {
         finish();
+    }
+
+    public void onClickConnexionBDD() {
+        maBaseFireStore = FirebaseFirestore.getInstance();
+        Toast.makeText(SaisieLivre.this, "Connexion OK", Toast.LENGTH_SHORT).show();
+
     }
 }

@@ -11,10 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Objects;
 
 public class ActivitePrincipale extends AppCompatActivity {
     private Button deconnexionView;
@@ -54,6 +57,17 @@ public class ActivitePrincipale extends AppCompatActivity {
     }
 
     public void onClickAfficherSelection(View view) {
+        Intent unIntent=getIntent();
+
+        Bundle unBundle=unIntent.getExtras();
+        if(Objects.nonNull(unBundle)){
+            String livreToString = unBundle.getString("livre");
+            Toast.makeText(ActivitePrincipale.this, livreToString, Toast.LENGTH_SHORT).show();
+
+        }
+        else{
+            Toast.makeText(ActivitePrincipale.this, "Pas de livre séléctionné", Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -69,5 +83,7 @@ public class ActivitePrincipale extends AppCompatActivity {
 
     public void onClickConnexionBDD(View view) {
         maBaseFireStore = FirebaseFirestore.getInstance();
+        Toast.makeText(ActivitePrincipale.this, "Connexion OK", Toast.LENGTH_SHORT).show();
+
     }
 }
