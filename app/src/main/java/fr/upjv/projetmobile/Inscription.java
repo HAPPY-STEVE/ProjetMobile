@@ -37,20 +37,20 @@ public class Inscription extends AppCompatActivity {
     }
 
     private void createAccount(String email, String password) {
-        // [START create_user_with_email]
+        //On cree l'utilisateur avec les donnees recuperes des EditText
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                            // donnees valides, on a cree un utilisateur dans la bdd firebase
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(Inscription.this, "Utilisateur crée !",
                                     Toast.LENGTH_LONG).show();
                             updateUI(user);
                         } else {
-                            // If sign in fails, display a message to the user.
+                            // on renvoie l'erreur si jamais une erreur existe dans l'inscription (mdp trop court, email invalide etc...)
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(Inscription.this, "Erreur dans l'inscription.",
                                     Toast.LENGTH_LONG).show();
@@ -71,6 +71,7 @@ public class Inscription extends AppCompatActivity {
         }
     }
 
+    //Expression reguliere pour email
     public boolean isEmailValid(String email)
     {
         final String EMAIL_PATTERN =
@@ -80,9 +81,10 @@ public class Inscription extends AppCompatActivity {
         return matcher.matches();
     }
 
+    //On renvoie l'utilisateur vers l'authentification si necessaire (qui va le renvoyer vers ActivitePrincipale car connecté)
     private void updateUI(FirebaseUser user) {
-        Intent activiteInscription = new Intent(this,AuthentificationEmail.class);
-        startActivity(activiteInscription);
+        Intent activiteConnexion = new Intent(this,AuthentificationEmail.class);
+        startActivity(activiteConnexion);
     }
 
     public void onClickQuitter(View view){
