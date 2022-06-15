@@ -34,5 +34,5 @@ public class LivreHolder extends RecyclerView.ViewHolder{
     public void mettreAJourLivreHolder(Livre unLivre){
         if(Objects.nonNull(unLivre))
             textViewPourLeNom.setText(unLivre.getTitre());
-    }
+        }
 }

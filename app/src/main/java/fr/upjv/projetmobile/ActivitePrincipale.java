@@ -46,7 +46,8 @@ public class ActivitePrincipale extends AppCompatActivity {
         startActivity(authentification);
     }
     public void onClickQuitterActivitePrincipale(View view) {
-        finish();
+        FirebaseAuth.getInstance().signOut();
+        this.finishAffinity();
     }
 
 
@@ -78,7 +79,7 @@ public class ActivitePrincipale extends AppCompatActivity {
     }
     public void onClickAfficherListe(View view) {
         Intent activiteListe = new Intent(this,ListeLivre.class);
-        startActivity(activiteListe);
+        startActivityForResult(activiteListe,1);
     }
 
     public void onClickConnexionBDD(View view) {
@@ -86,4 +87,19 @@ public class ActivitePrincipale extends AppCompatActivity {
         Toast.makeText(ActivitePrincipale.this, "Connexion OK", Toast.LENGTH_SHORT).show();
 
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1) {
+            if(resultCode == ActivitePrincipale.RESULT_OK){
+                String livreToString = data.getStringExtra("livre");
+                Toast.makeText(ActivitePrincipale.this, livreToString, Toast.LENGTH_SHORT).show();
+            }
+            if (resultCode == ActivitePrincipale.RESULT_CANCELED) {
+                // Write your code if there's no result
+            }
+        }
+    } //onActivityResult
 }

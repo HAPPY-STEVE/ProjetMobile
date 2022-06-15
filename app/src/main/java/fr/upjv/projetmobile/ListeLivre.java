@@ -38,7 +38,7 @@ public class ListeLivre extends AppCompatActivity {
     private TextView leTextView;
     private RecyclerView leRecyclerView;
 
-    Map<String, Object> donne = new HashMap<>();
+    private Map<String, Object> donne = new HashMap<>();
 
     //private EcouteurARecyclerView monEcouteur;
 
@@ -106,8 +106,9 @@ public class ListeLivre extends AppCompatActivity {
                                     unBundle.putString("livre", livreToString);
 
                                     monIntent.putExtras(unBundle);
+                                    setResult(ListeLivre.RESULT_OK,monIntent);
 
-                                    startActivity(monIntent);
+                                    finish();
                                 }
                             };
 
