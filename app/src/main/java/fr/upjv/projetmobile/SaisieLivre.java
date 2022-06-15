@@ -20,6 +20,8 @@ public class SaisieLivre extends AppCompatActivity {
     private EditText saisieAuteur;
     private EditText saisieTitre;
     private FirebaseFirestore maBaseFireStore;
+
+    //les données à manipuler
     Map<String, Object> donne = new HashMap<>();
 
 
@@ -29,6 +31,7 @@ public class SaisieLivre extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_saisie_livre);
 
+        //on se connecte a firestore a la connexion
         onClickConnexionBDD();
 
         saisieAuteur = findViewById(R.id.saisieAuteur);
@@ -37,15 +40,18 @@ public class SaisieLivre extends AppCompatActivity {
 
     public void onClickValiderSaisie(View view) {
 
+        // on recupère les values des deux champs saisis
         String leAuteur = saisieAuteur.getText().toString();
         String leTitre = saisieTitre.getText().toString();
 
         donne.put("auteur", leAuteur);
         donne.put("titre", leTitre);
 
+        //la fonction firestore
         maBaseFireStore.collection("Bibliotheque")
                 .document()
                 .set(donne)
+                //succès
                 .addOnSuccessListener(
                         new OnSuccessListener<Void>() {
                             @Override
@@ -55,6 +61,7 @@ public class SaisieLivre extends AppCompatActivity {
                             }
                         }
                 )
+                //echec
                 .addOnFailureListener(
                         new OnFailureListener() {
                             @Override

@@ -14,10 +14,10 @@ import fr.upjv.projetmobile.model.Livre;
 public class LivreHolder extends RecyclerView.ViewHolder{
 
     private TextView textViewPourLeNom;
-
     private EcouteurListe monEcouteur;
 
 
+    //pour chaque ligne : on ajoute un ecouteur
     public LivreHolder(@NonNull View itemView, EcouteurListe monEcouteur) {
         super(itemView);
 
@@ -31,6 +31,7 @@ public class LivreHolder extends RecyclerView.ViewHolder{
 
     }
 
+    // on ajoute le texte pour chaque ligne
     public void mettreAJourLivreHolder(Livre unLivre){
         if(Objects.nonNull(unLivre))
             textViewPourLeNom.setText(unLivre.getTitre());

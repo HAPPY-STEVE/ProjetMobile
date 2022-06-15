@@ -38,9 +38,6 @@ public class ListeLivre extends AppCompatActivity {
     private TextView leTextView;
     private RecyclerView leRecyclerView;
 
-    private Map<String, Object> donne = new HashMap<>();
-
-    //private EcouteurARecyclerView monEcouteur;
 
     private FirebaseFirestore maBaseFireStore;
 
@@ -49,74 +46,64 @@ public class ListeLivre extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_activite_liste_livre);
 
-        List<Livre>livreRecupere = new ArrayList();
-//        Random random=new Random();
-//        lesLivres=
-//                IntStream.range(0, 100)
-//                        .mapToObj(i->{
-//                            return new Livre("Auteur"+i,
-//                                    "Titre"+i);})
-//                        .collect(Collectors.toList());
-
+        //la liste qui recupère les livres de la BDD
+        List<Livre> livreRecupere = new ArrayList();
 
 
         maBaseFireStore = FirebaseFirestore.getInstance();
         Toast.makeText(ListeLivre.this, "Connexion OK", Toast.LENGTH_SHORT).show();
 
+
+        //la fonction get firestore
         maBaseFireStore
                 .collection("Bibliotheque")
                 .get()
+                //ajout du listener de reussite
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
+                            //boucle sur tous les livre récupérés
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 //Log.d("lee", document.getId() + " => " + document.get("titre"));
                                 String auteur = (String) document.get("auteur");
                                 String titre = (String) document.get("titre");
-                                Livre l = new Livre(auteur,titre);
+
+                                //on les ajoute dans la liste
+                                Livre l = new Livre(auteur, titre);
                                 livreRecupere.add(l);
 
 
                             }
 
-                            System.out.println("livre recupéré"+livreRecupere);
-
-
+                            // on fait un stream pour remplir lesLivres
                             lesLivres = livreRecupere.stream()
-                                    .map( c -> new Livre(c.getTitre(),c.getAuteur()) )
-                                    .collect( Collectors.toList() );
+                                    .map(c -> new Livre(c.getTitre(), c.getAuteur()))
+                                    .collect(Collectors.toList());
 
 
-                            System.out.println("lesLivres"+lesLivres);
-
+                            //on implémente la méthode au clic d'un item
                             EcouteurListe monEcouteur = new EcouteurListe() {
                                 @Override
                                 public void clicked(int position) {
-                                    //leTextView.setText(lesLivres.get(position).toString());
+                                    //on envoie le resultat dans l'activité principale
+                                    String livreToString = lesLivres.get(position).toString();
+                                    Intent monIntent = new Intent(ListeLivre.this, ActivitePrincipale.class);
 
-
-                                    String livreToString=lesLivres.get(position).toString();
-
-
-                                    Intent monIntent=new Intent(ListeLivre.this, ActivitePrincipale.class);
-
-
-                                    Bundle unBundle=new Bundle();
+                                    Bundle unBundle = new Bundle();
                                     unBundle.putString("livre", livreToString);
 
                                     monIntent.putExtras(unBundle);
-                                    setResult(ListeLivre.RESULT_OK,monIntent);
+                                    setResult(ListeLivre.RESULT_OK, monIntent);
 
                                     finish();
                                 }
                             };
 
-
-                            LivreViewAdapter monAdapter=new LivreViewAdapter(lesLivres,monEcouteur);
+                            // on peuple le view adapter avec lesLivres et l'ecouteur
+                            LivreViewAdapter monAdapter = new LivreViewAdapter(lesLivres, monEcouteur);
                             leRecyclerView.setLayoutManager(new LinearLayoutManager(ListeLivre.this));
                             leRecyclerView.setAdapter(monAdapter);
-
 
 
                         } else {
@@ -125,26 +112,15 @@ public class ListeLivre extends AppCompatActivity {
                     }
                 });
 
-        System.out.println("lesLivres"+lesLivres);
 
-        leTextView=findViewById(R.id.id_textView);
-        leRecyclerView=findViewById(R.id.id_recyclerView);
+        leTextView = findViewById(R.id.id_textView);
+        leRecyclerView = findViewById(R.id.id_recyclerView);
 
 
     }
 
     public void onClickRetourLister(View view) {
         super.onBackPressed();
-    }
-
-    private void initLesLivres() {
-
-
-
-
-//
-
-
     }
 
 

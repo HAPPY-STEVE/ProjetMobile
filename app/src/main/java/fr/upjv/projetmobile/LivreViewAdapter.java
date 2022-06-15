@@ -16,6 +16,7 @@ public class LivreViewAdapter extends RecyclerView.Adapter<LivreHolder>{
     private final EcouteurListe monEcouteur;
     private List<Livre> lesLivres;
 
+    //constructeur avec la liste de livre et l'écouteur
     public LivreViewAdapter(List<Livre> lesLivres,EcouteurListe monEcouteur) {
         this.lesLivres = lesLivres;
         this.monEcouteur = monEcouteur;
@@ -24,7 +25,7 @@ public class LivreViewAdapter extends RecyclerView.Adapter<LivreHolder>{
     @NonNull
     @Override
     public LivreHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
+    //on recupere le conteneur de ligne et on le branche avec le holder
         LayoutInflater monLayoutInflater = LayoutInflater.from(parent.getContext());
 
         View uneView =
@@ -37,12 +38,14 @@ public class LivreViewAdapter extends RecyclerView.Adapter<LivreHolder>{
 
 
 
+    //on met a jour
     @Override
     public void onBindViewHolder(@NonNull LivreHolder holder, int position) {
 
         holder.mettreAJourLivreHolder(lesLivres.get(position));
     }
 
+    //on recupere la taille de la liste
     @Override
     public int getItemCount() {
         return lesLivres.size();
