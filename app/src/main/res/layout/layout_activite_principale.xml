@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="19dp"
         android:onClick="onClickQuitterActivitePrincipale"
         android:text="@string/Quitter"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,12 +21,12 @@
         android:id="@+id/id_bouton_saisir_activite_principale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="189dp"
         android:onClick="onClickSaisirActivitePrincipale"
         android:text="@string/Saisir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_button_connexionbdd" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/id_bouton_lister_activite_principale"
@@ -50,14 +50,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/id_button_connexionbdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="15dp"
-        android:onClick="onClickConnexionBDD"
-        android:text="@string/ConnexionBDD"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_button_deconnexion_activiteprincipale" />
 </androidx.constraintlayout.widget.ConstraintLayout>

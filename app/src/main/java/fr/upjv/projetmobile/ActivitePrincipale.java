@@ -57,19 +57,6 @@ public class ActivitePrincipale extends AppCompatActivity {
         startActivity(activiteSaisir);
     }
 
-    public void onClickAfficherSelection(View view) {
-        Intent unIntent=getIntent();
-
-        Bundle unBundle=unIntent.getExtras();
-        if(Objects.nonNull(unBundle)){
-            String livreToString = unBundle.getString("livre");
-            Toast.makeText(ActivitePrincipale.this, livreToString, Toast.LENGTH_SHORT).show();
-
-        }
-        else{
-            Toast.makeText(ActivitePrincipale.this, "Pas de livre séléctionné", Toast.LENGTH_SHORT).show();
-        }
-    }
 
 
     public void onClickDeconnexion(View view){
@@ -82,11 +69,7 @@ public class ActivitePrincipale extends AppCompatActivity {
         startActivityForResult(activiteListe,1);
     }
 
-    public void onClickConnexionBDD(View view) {
-        maBaseFireStore = FirebaseFirestore.getInstance();
-        Toast.makeText(ActivitePrincipale.this, "Connexion OK", Toast.LENGTH_SHORT).show();
 
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
